@@ -88,7 +88,7 @@
 				echo "Exito";
 
 			}else{
-				echo "Insercion no exitosa :(";
+				echo "Error al actualizar";
 			}
         }
 
@@ -102,9 +102,8 @@
 
             if($resultado){
 				echo "Eliminado";
-
 			}else{
-				echo "Insercion no exitosa :(";
+				echo "Error al eliminar";
 			}
         }
 
