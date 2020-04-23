@@ -27,7 +27,7 @@
         <label for="Foto">Foto</label>
         <input type="file" name="Foto" id="Foto">
         <br>
-        <button type="submit">Enviar</button>
+        <button type="submit" name="guardar" value="1">Enviar</button>
     </form>
 <br>
 <hr>
@@ -50,6 +50,8 @@
             <td><?php echo $datos['Apellidos']; ?></td>
             <td><?php echo $datos['Correo']; ?></td>
             <td><img src="<?php echo $datos['Imagen']; ?>" alt="" width="150"></td>
+            <td><a href="editar.php?id=<?php echo $datos['id_cliente']; ?>">Editar</a></td>
+            <td><a href="proceso.php?id=<?php echo $datos['id_cliente']; ?>">Eliminar</a></td>
         </tr>
     <?php
         }

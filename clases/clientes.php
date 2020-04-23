@@ -16,6 +16,10 @@
             $this->foto ="";
         }
 
+        public function setID($datos){
+            $this->id_cliente=$datos;
+        }
+
         public function setNombre($dato){
             $this->nombre=$dato;
         }
@@ -60,6 +64,48 @@
             $resultado = mysqli_query($db,$sql);
             
             return mysqli_fetch_all($resultado,MYSQLI_ASSOC);
+        }
+
+        public function mostrarCliente($id){
+            $c = new conexion();
+            $db = $c->conexion();
+
+            $sql = "SELECT * FROM c_clientes WHERE id_cliente = '$id'";
+            
+            $resultado = mysqli_query($db,$sql);
+            return mysqli_fetch_row($resultado);
+        }
+
+        public function actualizar(){
+            $c = new conexion();
+            $db = $c->conexion();
+
+            $sql= "UPDATE c_clientes SET Nombre = '$this->nombre', Apellidos = '$this->apellidos', Correo = '$this->correo' WHERE id_cliente = '$this->id_cliente'";
+
+            $resultado = mysqli_query($db,$sql);
+
+            if($resultado){
+				echo "Exito";
+
+			}else{
+				echo "Insercion no exitosa :(";
+			}
+        }
+
+        public function eliminar(){
+            $c = new conexion();
+            $db = $c->conexion();
+
+            $sql= "DELETE FROM c_clientes WHERE id_cliente = '$this->id_cliente'";
+
+            $resultado = mysqli_query($db,$sql);
+
+            if($resultado){
+				echo "Eliminado";
+
+			}else{
+				echo "Insercion no exitosa :(";
+			}
         }
 
     }
